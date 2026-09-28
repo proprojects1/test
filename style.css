@@ -1,5 +1,49 @@
 .square {
-    border: 1px solid #c91515;
+    border: 1px solid #000000;
     width: 100px;
     height: 100px;
+    background-color: red;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background-color: rgba(164, 147, 67, 0.541);
+}
+
+html {
+    height: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: rgb(173, 168, 168);
+    height:5%;
+}
+
+a {
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+}
+
+main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.restart{
+    background:rgb(165, 179, 146);
 }
