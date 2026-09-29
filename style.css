@@ -47,3 +47,7 @@ main {
 .restart{
     background:rgb(165, 179, 146);
 }
+
+#player-data{
+    display:flex;
+}
