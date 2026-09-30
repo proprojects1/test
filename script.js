@@ -1,5 +1,6 @@
 console.log("Hello world")
 const resetButton = document.querySelector("#restart")
+const squares = document.querySelectorAll(".square")
 
 let counter = 0;
 
@@ -23,13 +24,24 @@ function changeToO() {
     currentPlayer.textContent = "X";
 }
 
-function changeSquareValue() {
-    let squareValue = square.textContent;
-    if (squareValue == "X") {
-        changeToO();
-    } else {
-        changeToX();
-    }
+// function changeSquareValue() {
+//     let squareValue = square.textContent;
+//     if (squareValue == "X") {
+//         changeToO();
+//     } else {
+//         changeToX();
+//     }
+// }
+
+function changeSquare(event){
+    console.log("Click event:", event)
+    const square = event.target;
+    console.log("Square", square);
+    square.textContent = "X";
 }
 
-square.addEventListener("click", changeSquareValue);
+// square.addEventListener("click", changeSquareValue);
+
+for (const square of squares) {
+    square.addEventListener("click", changeSquare)
+}
