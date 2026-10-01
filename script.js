@@ -9,20 +9,8 @@ function count() {
     console.log("Current clicks:" + counter);
 }
 
-resetButton.addEventListener("click", count);
-
 const square = document.querySelector(".square");
 const currentPlayer = document.querySelector("#current-player");
-
-function changeToX() {
-    square.textContent = "X";
-    currentPlayer.textContent = "O";
-}
-
-function changeToO() {
-    square.textContent = "O";
-    currentPlayer.textContent = "X";
-}
 
 // function changeSquareValue() {
 //     let squareValue = square.textContent;
@@ -33,15 +21,32 @@ function changeToO() {
 //     }
 // }
 
-function changeSquare(event){
-    console.log("Click event:", event)
+function switchPlayer() {
+    if (currentPlayer.textContent === 'X') {
+        currentPlayer.textContent = 'O';
+    } else {
+        currentPlayer.textContent = 'X';
+    }
+}
+
+function playTurn(event) {
     const square = event.target;
-    console.log("Square", square);
-    square.textContent = "X";
+    if (square.textContent === '') {
+        square.textContent = currentPlayer.textContent;
+    }
+    switchPlayer()
 }
 
 // square.addEventListener("click", changeSquareValue);
 
 for (const square of squares) {
-    square.addEventListener("click", changeSquare)
+    square.addEventListener("click", playTurn)
 }
+
+function resetGame() {
+    for (const square of squares) {
+        square.textContent = "";
+        currentPlayer.textContent = "X";
+    }
+}
+resetButton.addEventListener("click", resetGame)
